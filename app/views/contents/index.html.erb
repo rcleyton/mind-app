@@ -5,6 +5,7 @@
 <% @contents.each do |content| %>
   Título: <%= content.title %><br />
   Descrição: <%= content.description %><br />
+  <%= link_to 'Exibir', content_path(content) %>
   <%= link_to 'Editar', edit_content_path(content) %>
 
 <% end %>
