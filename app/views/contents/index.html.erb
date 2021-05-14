@@ -3,10 +3,12 @@
 <%= link_to 'Novo conteúdo', new_content_path %><br />
 
 <% @contents.each do |content| %>
-  Título: <%= content.title %><br />
-  Descrição: <%= content.description %><br />
   <%= link_to 'Exibir', content_path(content) %>
   <%= link_to 'Editar', edit_content_path(content) %>
   <%= link_to 'Apagar', content_path(content), method: :delete,
   data: { confirm: "Tem certeza que deseja apagar esse conteúdo?" } %>
+  <strong>Título:</strong> <%= content.title %>
+  <strong>Descrição:</strong> <%= content.description %>
+  <strong>Tags:</strong> <%= content.tags.pluck(:name).join(', ') %>
+  <br/>
 <% end %>
